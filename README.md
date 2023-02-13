@@ -33,6 +33,8 @@
 
 ! 目前还没有买服务器部署，请再等等一阵子
 
+> 在线预览正在筹备中，买服务器备案中 at 2023-02-13
+
 ```text
 username: houcloud
 
@@ -95,4 +97,5 @@ UI框架使用腾讯开源 Tdesign  文档地址 https://tdesign.tencent.com/vue
 ![page3.png](doc%2Fpage3.png)
 ![page4.png](doc%2Fpage4.png)
 ![page5.png](doc%2Fpage5.png)
+![page6.png](doc%2Fpage6.png)
 
