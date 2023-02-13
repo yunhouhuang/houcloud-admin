@@ -1,0 +1,522 @@
+/** 公共前缀 */
+@starter-prefix: tdesign-starter;
+
+// 组件库本身只有色彩相关的css token 扩展其他css token使用 待组件库扩充其他token后再做替换 这里使用less vars 避免两种css token让使用者混淆
+// tdesign 只保持一套token即可
+
+// Spacer
+@spacer: 8px;
+@spacer-s: calc(@spacer * 0.5); // 间距-4
+@spacer-l: calc(@spacer * 1.5); // 间距-12
+@spacer-1: @spacer; // 间距-8
+@spacer-2: calc(@spacer * 2); // 间距-16
+@spacer-3: calc(@spacer * 3); // 间距-24
+@spacer-4: calc(@spacer * 4); // 间距-32
+@spacer-5: calc(@spacer * 5); // 间距-大-40
+@spacer-6: calc(@spacer * 6); // 间距-大-48
+@spacer-7: calc(@spacer * 7); // 间距-大-48
+@spacer-8: calc(@spacer * 8); // 间距-大-48
+@spacer-9: calc(@spacer * 9); // 间距-大-48
+@spacer-10: calc(@spacer * 10); // 间距-大-80
+
+// Font
+@font-size: 10px;
+@font-size-s: calc(@font-size * 1.2); // 字号-五级字号
+@font-size-base: calc(@font-size * 1.4); // 字号-四级字号
+@font-size-l: calc(@font-size * 1.6); // 字号-三级字号
+@font-size-xl: calc(@font-size * 2); // 字号-二级字号
+@font-size-xxl: calc(@font-size * 3.6); // 字号-一级字号
+
+// Line Height
+@line-height: 1.5; // 行高-常规
+@line-height-s: 20px; // 行高-对应五级文字
+@line-height-base: 22px; // 行高-对应四级文字
+@line-height-l: 24px; // 行高-对应三级文字
+@line-height-xl: 28px; // 行高-对应二级文字
+@line-height-xxl: 44px; //行高-对应一级文字
+
+@font-family: PingFang SC, Microsoft YaHei, Arial Regular; // 字体-磅数-常规
+@font-family-medium: PingFang SC, Microsoft YaHei, Arial Medium; // 字体-磅数-粗体
+
+// Border Radius
+@border-radius: 3px; // 圆角-全局
+@border-radius-50: 50%; // 圆角-全圆角
+
+// 响应式断点
+@screen-sm: 768px;
+@screen-md: 992px;
+@screen-lg: 1200px;
+@screen-xl: 1400px;
+
+@screen-sm-min: @screen-sm;
+@screen-md-min: @screen-md;
+@screen-lg-min: @screen-lg;
+@screen-xl-min: @screen-xl;
+
+@screen-sm-max: calc(@screen-md-min - 1px);
+@screen-md-max: calc(@screen-lg-min - 1px);
+@screen-lg-max: calc(@screen-xl-min - 1px);
+
+// 动画
+@anim-time-fn-easing: cubic-bezier(0.38, 0, 0.24, 1);
+@anim-time-fn-ease-out: cubic-bezier(0, 0, 0.15, 1);
+@anim-time-fn-ease-in: cubic-bezier(0.82, 0, 1, 0.9);
+@anim-duration-base: 0.2s;
+@anim-duration-moderate: 0.24s;
+@anim-duration-slow: 0.28s;
+
+@text-color-secondary: #808080;
+
+
+.ml-1 {
+  margin-left: 4px;
+}
+
+.ml-2 {
+  margin-left: 8px;
+}
+
+.ml-3 {
+  margin-left: 12px;
+}
+
+.ml-4 {
+  margin-left: 16px;
+}
+
+.ml-10 {
+  margin-left: 40px;
+}
+
+
+.mr-1 {
+  margin-right: 4px;
+}
+
+.mr-2 {
+  margin-right: 8px;
+}
+
+.mr-3 {
+  margin-right: 12px;
+}
+
+.mr-4 {
+  margin-right: 16px;
+}
+
+
+.mt-1 {
+  margin-top: 4px;
+}
+
+.mt-2 {
+  margin-top: 8px;
+}
+
+.mt-3 {
+  margin-top: 12px;
+}
+
+.mt-4 {
+  margin-top: 16px;
+}
+
+.mt-6 {
+  margin-top: 24px;
+}
+
+.mt-10 {
+  margin-top: 40px;
+}
+
+
+.mb-1 {
+  margin-bottom: 4px;
+}
+
+.mb-2 {
+  margin-bottom: 8px;
+}
+
+.mb-3 {
+  margin-bottom: 12px;
+}
+
+.mb-4 {
+  margin-bottom: 16px;
+}
+
+
+.ma-1 {
+  margin: 4px;
+}
+
+.ma-2 {
+  margin: 8px;
+}
+
+.ma-3 {
+  margin: 12px;
+}
+
+.ma-4 {
+  margin: 16px;
+}
+
+.mx-1 {
+  margin: 0 4px;
+}
+
+.mx-2 {
+  margin: 0 8px;
+}
+
+.mx-3 {
+  margin: 0 12px;
+}
+
+.mx-4 {
+  margin: 0 16px;
+}
+
+.my-1 {
+  margin: 4px 0;
+}
+
+.my-2 {
+  margin: 8px 0;
+}
+
+.my-3 {
+  margin: 12px 0;
+}
+
+.my-4 {
+  margin: 16px 0;
+}
+
+
+.pl-1 {
+  padding-left: 4px;
+}
+
+.pl-2 {
+  padding-left: 8px;
+}
+
+.pl-3 {
+  padding-left: 12px;
+}
+
+.pl-4 {
+  padding-left: 16px;
+}
+
+
+.pr-1 {
+  padding-right: 4px;
+}
+
+.pr-2 {
+  padding-right: 8px;
+}
+
+.pr-3 {
+  padding-right: 12px;
+}
+
+.pr-4 {
+  padding-right: 16px;
+}
+
+
+.pt-1 {
+  padding-top: 4px;
+}
+
+.pt-2 {
+  padding-top: 8px;
+}
+
+.pt-3 {
+  padding-top: 12px;
+}
+
+.pt-4 {
+  padding-top: 16px;
+}
+
+
+.pb-1 {
+  padding-bottom: 4px;
+}
+
+.pb-2 {
+  padding-bottom: 8px;
+}
+
+.pb-3 {
+  padding-bottom: 12px;
+}
+
+.pb-4 {
+  padding-bottom: 16px;
+}
+
+
+.pa-0 {
+  padding: 0;
+}
+
+.pa-1 {
+  padding: 4px;
+}
+
+.pa-2 {
+  padding: 8px;
+}
+
+.pa-3 {
+  padding: 12px;
+}
+
+.pa-4 {
+  padding: 16px;
+}
+
+.px-1 {
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.px-2 {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.px-3 {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.px-4 {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.py-1 {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.py-2 {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.py-3 {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.py-4 {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.dpr-start-start {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.dpr-start-start-wrap {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.is-link{
+  cursor: pointer;
+}
+
+.dpr-center-start {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.dpc-start {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.dpc-start-start {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.dpc-center-start {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.dpc-center-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.dpc-center-end {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.dpc-end {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.dpr-center-sb {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dpr-center-sb-wrap {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.dpr-start-sb-wrap {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.dpr-end-sb {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.dpr-center-end {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.dpr-center-start-wrap {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.dpr-center-center {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.br-5 {
+  border-radius: 5px;
+}
+
+.br-12 {
+  border-radius: 12px;
+}
+
+.br-r50 {
+  border-radius: 50%;
+}
+
+
+.no-bg {
+  background: transparent;
+}
+
+.white-bg {
+  background: white;
+}
+
+.danger-color {
+  color: var(--td-error-color)
+}
+
+.full-width {
+  width: 100%;
+}
+
+.max-view-content {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.tip-text {
+  color: var(--td-text-color-placeholder);
+  font-size: 12px;
+  text-align: start;
+}
+.tip-color {
+  color: var(--td-text-color-placeholder);
+}
+
+.height-vh20 {
+  height: 20vh;
+}
+
+.height-vh50 {
+  height: 50vh;
+}
+
+.danger-color {
+  color: var(--td-error-color)
+}
+
+.success-color {
+  color: var(--td-success-color)
+}
+
+
+.text-line1 {
+  overflow: hidden;
+  text-overflow: ellipsis; /* 超出部分省略号 */
+  word-break: break-all; /* break-all(允许在单词内换行。) */
+  display: -webkit-box; /* 对象作为伸缩盒子模型显示 */
+  -webkit-box-orient: vertical; /* 设置或检索伸缩盒对象的子元素的排列方式 */
+  -webkit-line-clamp: 1;
+}
+
+.text-line2 {
+  overflow: hidden;
+  text-overflow: ellipsis; /* 超出部分省略号 */
+  word-break: break-all; /* break-all(允许在单词内换行。) */
+  display: -webkit-box; /* 对象作为伸缩盒子模型显示 */
+  -webkit-box-orient: vertical; /* 设置或检索伸缩盒对象的子元素的排列方式 */
+  -webkit-line-clamp: 2;
+}

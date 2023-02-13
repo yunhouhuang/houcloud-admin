@@ -1,0 +1,66 @@
+{
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "eslint-config-airbnb-base",
+    "plugin:vue/vue3-recommended",
+    "plugin:vue-scoped-css/base",
+    "plugin:prettier/recommended"
+  ],
+  "env": {
+    "browser": true,
+    "node": true,
+    "jest": true,
+    "es6": true
+  },
+  "globals": {
+    "defineProps": "readonly",
+    "defineEmits": "readonly"
+  },
+  "plugins": ["vue", "@typescript-eslint"],
+  "parserOptions": {
+    "parser": "@typescript-eslint/parser",
+    "sourceType": "module",
+    "allowImportExportEverywhere": true,
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "settings": {
+    "import/extensions": [".js", ".jsx", ".ts", ".tsx"]
+  },
+  "rules": {
+    "no-console": "off",
+    "no-continue": "off",
+    "no-restricted-syntax": "off",
+    "no-plusplus": "off",
+    "no-param-reassign": "off",
+    "no-shadow": "off",
+    "guard-for-in": "off",
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": "off",
+    "@typescript-eslint/no-empty-function": "off",
+    "import/extensions": "off",
+    "camelcase": "off",
+    "@typescript-eslint/ban-ts-comment": "off",
+    "import/no-unresolved": "off",
+    "import/no-extraneous-dependencies": "off",
+    "import/prefer-default-export": "off",
+    "import/first": "off", // https://github.com/vuejs/vue-eslint-parser/issues/58
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "vue/first-attribute-linebreak": 0
+  },
+  "overrides": [
+    {
+      "files": ["*.vue"],
+      "rules": {
+        "vue/component-name-in-template-casing": [2, "kebab-case"],
+        "vue/require-default-prop": 0,
+        "vue/multi-word-component-names": 0,
+        "vue/no-reserved-props": 0,
+        "vue/no-v-html": 0,
+        "vue-scoped-css/enforce-style-type": ["error", { "allows": ["scoped"] }]
+      }
+    }
+  ]
+}
