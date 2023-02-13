@@ -17,25 +17,6 @@
     <div class="mt-2">注册日期: {{ formatTime(user.createdAt) }}</div>
     <div class="mt-2">最后活跃: {{ formatTime(user.lastLiveAt) }}</div>
     <t-divider />
-    <h3>
-      达人
-      <span style="color: var(--td-text-color-placeholder)"
-        >({{ (user.douyinUsers && user.douyinUsers.length) || '暂无达人' }})</span
-      >
-    </h3>
-    <div class="mt-2">
-      <div
-        v-for="stage in user.douyinUsers"
-        :key="stage.id"
-        class="dpr-center-start my-2 user-stage-item"
-        @click="$router.push(`/user/douyin/detail/${stage.id}`)"
-      >
-        <t-avatar :image="stage.avatar" size="30px" />
-        <div class="px-2">
-          <div style="font-weight: bold; font-size: 18px">{{ stage.nickname }}</div>
-        </div>
-      </div>
-    </div>
   </t-card>
 </template>
 

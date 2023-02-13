@@ -16,7 +16,7 @@ export const PANE_LIST: Array<DashboardPanel> = [
     leftType: 'icon-money-circle',
   },
   {
-    title: '达人数量',
+    title: '会员用户',
     number: '768 人',
     downTrend: '20.5%',
     leftType: 'echarts-bar',
@@ -28,7 +28,7 @@ export const PANE_LIST: Array<DashboardPanel> = [
     leftType: 'icon-usergroup',
   },
   {
-    title: '机构订单 (个)',
+    title: '交易订单 (个)',
     number: 527,
     downTrend: '20.5%',
     leftType: 'icon-file-paste',
