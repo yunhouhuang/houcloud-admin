@@ -35,7 +35,6 @@ export default ({ mode }: ConfigEnv, command: string): UserConfig => {
       host: '0.0.0.0',
       proxy: {
         '/api': {
-          // target: 'https://api.doudaixuan.com',
           target: 'http://127.0.0.1:8888',
           changeOrigin: true,
           configure: (proxy, options) => {

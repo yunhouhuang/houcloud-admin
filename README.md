@@ -91,10 +91,11 @@ UI框架使用腾讯开源 Tdesign  文档地址 https://tdesign.tencent.com/vue
 
 
 ###  页面预览图
+![login.jpg](doc%2Flogin.jpg)
+![page7.jpg](doc%2Fpage7.jpg)
 ![page1.png](doc%2Fpage1.png)
 ![page2.png](doc%2Fpage2.png)
 ![page3.png](doc%2Fpage3.png)
 ![page4.png](doc%2Fpage4.png)
 ![page5.png](doc%2Fpage5.png)
 ![page6.png](doc%2Fpage6.png)
-
