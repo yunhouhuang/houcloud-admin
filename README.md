@@ -27,7 +27,6 @@
 - MyBatis Plus
 - Hutool
 
-源码开源遵循`MTI`协议
 
 ### [在线预览地址](https://admin.houcloud.com) 
 
