@@ -13,7 +13,7 @@
 ### 技术栈
 前端 
 - Vue3
-- Vite4
+- Vite
 - UI：TDesign Vue Next 
 - iconfont.cn
 - TypeScript
