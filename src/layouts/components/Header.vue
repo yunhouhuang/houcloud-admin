@@ -121,7 +121,9 @@ const userStore = useUserStore();
 const router = useRouter();
 const settingStore = useSettingStore();
 const displayMode = ref(settingStore.displayMode);
-const userInfo = ref(userStore.userInfo);
+const userInfo = computed(() => {
+  return userStore.userInfo;
+});
 const sysConfig = ref({ ...STYLE_CONFIG });
 const setTheme = (mode: string) => {
   let theme = mode;
@@ -363,7 +365,7 @@ watchEffect(() => {
 
   :deep(.t-dropdown__item) {
     width: 100%;
-    margin-bottom: 0px;
+    margin-bottom: 0;
   }
   &:last-child {
     :deep(.t-dropdown__item) {

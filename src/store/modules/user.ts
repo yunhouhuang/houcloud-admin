@@ -50,7 +50,7 @@ export const useUserStore = defineStore('user', {
     async getUserInfo() {
       const res = await personalInfoApi();
       this.userInfo = res.result;
-      localStorage.setItem(PERSONAL_INFO, JSON.stringify(res.result));
+      localStorage.setItem(PERSONAL_INFO, JSON.stringify(res.result || {}));
       return this.userInfo;
     },
     async logout() {
