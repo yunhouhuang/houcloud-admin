@@ -38,11 +38,17 @@ export const useUserStore = defineStore('user', {
   },
   actions: {
     async login(userInfo: Record<string, unknown>) {
+      const permissionStore = usePermissionStore();
       const res = await passwordLoginApi(userInfo);
       if (res.success) {
         this.token = res.result.access_token;
         localStorage.setItem(ACCESS_TOKEN_NAME, this.token);
         localStorage.setItem(REFRESH_TOKEN_NAME, res.result.refresh_token);
+        await permissionStore.initAsyncRouter();
+        const { asyncRouters } = permissionStore;
+        asyncRouters.forEach((asyncRouter) => {
+          router.addRoute(asyncRouter);
+        });
         return res.result;
       }
       throw res;
@@ -61,7 +67,7 @@ export const useUserStore = defineStore('user', {
       localStorage.removeItem(PERSONAL_INFO);
       sessionStorage.clear();
       usePermissionStore().asyncRouterFlag = 0;
-      // localStorage.clear();
+      usePermissionStore().asyncRouters = [];
       this.token = '';
       this.userInfo = InitUserInfo;
     },

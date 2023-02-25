@@ -86,7 +86,7 @@ const onSubmit = async ({ validateResult }) => {
           userStore.getUserInfo();
           const redirect = route.query.redirect as string;
           const redirectUrl = redirect ? decodeURIComponent(redirect) : '/';
-          router.push(redirectUrl);
+          router.replace(redirectUrl);
         })
         .finally(() => {
           loadingLogin.value = false;

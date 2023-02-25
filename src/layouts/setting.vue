@@ -252,10 +252,8 @@ watchEffect(() => {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  border-radius: 50% !important;
-  padding: 6px !important;
+  border-radius: 30px !important;
   border: 2px solid transparent !important;
-
   > .t-radio-button_Label {
     display: inline-flex;
   }
@@ -321,7 +319,9 @@ watchEffect(() => {
     :deep(.t-radio-button) {
       display: inline-flex;
       max-height: 78px;
-      padding: 8px;
+      height: max-content;
+      padding: 8px 8px 2px 8px;
+      margin: 6px;
       border-radius: @border-radius;
       border: 2px solid #e3e6eb;
       > .t-radio-button_Label {

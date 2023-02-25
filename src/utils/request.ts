@@ -143,7 +143,11 @@ instance.interceptors.response.use(
       result403(response.data.message);
     }
     if (response.data.code === 500 || response.status === 500) {
-      result500();
+      NotificationPlugin.error({
+        title: '服务器繁忙',
+        content: '服务器出现意外，故障信息已自动上报至技术团队，请稍后再试.',
+      });
+      // result500();
     }
     if (!config || !config.retry) return Promise.reject(err);
 

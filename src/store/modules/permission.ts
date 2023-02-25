@@ -65,6 +65,7 @@ export const usePermissionStore = defineStore('permission', () => {
   // 从后台获取动态路由
   const initAsyncRouter = async () => {
     asyncRouterFlag.value++;
+    asyncRouters.value = [];
     const res = await getMenuTreeApi();
     const asyncRouter = res.result || [];
     if (!asyncRouter || !asyncRouter.length) {
