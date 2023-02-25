@@ -28,11 +28,9 @@
 - Hutool
 
 
-### [在线预览地址](https://admin.houcloud.com) 
+### [在线预览地址](https://houcloud-admin.houcloud.com) https://houcloud-admin.houcloud.com
 
-! 目前还没有买服务器部署，请再等等一阵子
-
-> 在线预览正在筹备中，买服务器备案中 at 2023-02-13
+> 2核4m带宽服务器，请慢点用
 
 ```text
 username: houcloud
