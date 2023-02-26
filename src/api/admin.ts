@@ -8,7 +8,7 @@ export const updateAdminApi = (data): Promise<ApiResult<any>> => request.put('/a
 
 export const deleteAdminApi = (data): Promise<ApiResult<any>> => request.delete('/api/admin/admin', { data });
 
-export const lockAdminApi = (data): Promise<ApiResult<any>> => request.post('/api/admin/admin/lock', data);
+export const lockAdminApi = (data): Promise<ApiResult<any>> => request.put('/api/admin/admin/lock', data);
 
 export const addAdminApi = (data): Promise<ApiResult<any>> => request.post('/api/admin/admin', data);
 
@@ -24,6 +24,7 @@ export interface AdminType {
   id?: number;
   avatar?: string;
   mobile?: string;
+  locked?: boolean;
   nickname?: string;
   username?: string;
   password?: string;
@@ -32,5 +33,5 @@ export interface AdminType {
   lastLoginAt?: Date;
   lastLiveAt?: Date;
   createdAt?: Date;
-  roles?: any[];
+  roles?: AdminRole[];
 }

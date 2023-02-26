@@ -48,7 +48,6 @@ onMounted(() => {
 </script>
 
 <style lang="less" scoped>
-@import '@/style/variables.less';
 .topper-enter,
 .topper-leave-to {
   opacity: 0;

@@ -22,11 +22,14 @@ onMounted(() => {
 });
 watch(
   () => userStore.loginExpired,
-  () => {},
+  (value) => {
+    if (value === true) {
+      router.push(`/login?redirect=${router.currentRoute.value.fullPath}`);
+    }
+  },
 );
 </script>
 <style lang="less" scoped>
-@import '@/style/variables.less';
 #nprogress .bar {
   background: var(--td-brand-color) !important;
 }

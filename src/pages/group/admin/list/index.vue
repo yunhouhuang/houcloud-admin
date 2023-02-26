@@ -3,9 +3,11 @@
     <t-row class="mb-2">
       <t-col>
         <t-button @click="handleShowAddAdmin">
-          <template #icon><add-icon /></template>
-          添加人员</t-button
-        >
+          <template #icon>
+            <add-icon />
+          </template>
+          添加人员
+        </t-button>
       </t-col>
     </t-row>
     <t-base-table
@@ -32,7 +34,7 @@
       <template #role="{ row }">
         <div v-if="row.roles && row.roles.length">
           <template v-for="(role, index) in row.roles" :key="role.id">
-            <t-tag v-if="index < 3" class="mb-1">
+            <t-tag v-if="index < 3" class="mb-1 mr-1">
               {{ role.name }}
             </t-tag>
           </template>
@@ -58,7 +60,7 @@
       </template>
       <template #op="slotProps">
         <t-button size="small" @click="handleClickDetail(slotProps.row)">查看</t-button>
-        <t-dropdown v-if="slotProps.row.id !== myInfo.id && !slotProps.row.isCreator" min-column-width="140">
+        <t-dropdown v-if="!slotProps.row.isCreator && slotProps.row.id !== myInfo.id" min-column-width="140">
           <template #dropdown>
             <t-dropdown-menu>
               <t-dropdown-item @click="handleLockClick(slotProps.row)">
@@ -100,7 +102,7 @@
             ></t-input>
           </t-form-item>
           <t-form-item
-            v-if="myInfo.id === 1"
+            v-if="!adminForm.id"
             name="password"
             label="密码"
             help="提示: 请勿设置简单密码，以防系统被入侵。"
@@ -124,13 +126,13 @@
             <t-input
               v-model="adminForm.mobile"
               :disabled="adminForm.id"
-              type="mobile"
+              type="tel"
               placeholder="（选填）以便紧急联系"
             ></t-input>
           </t-form-item>
           <t-form-item class="dpr-center-end">
-            <t-button theme="default" @click="showAddDialog = false"> 取消 </t-button>
-            <t-button :disabled="addLoading" :loading="addLoading" type="submit"> 保存 </t-button>
+            <t-button theme="default" @click="showAddDialog = false"> 取消</t-button>
+            <t-button :disabled="addLoading" :loading="addLoading" type="submit"> 保存</t-button>
           </t-form-item>
         </t-form>
       </div>
@@ -165,6 +167,7 @@ import {
 } from '@/api/admin';
 import FileManager from '@/pages/file/components/file-manager/index.vue';
 import { getRoleListApi, RoleType } from '@/api/role';
+import { lockUserApi, UserType } from '@/api/user';
 
 const myInfo = ref(useUserStore().userInfo);
 const settingStore = useSettingStore();
@@ -199,18 +202,19 @@ const pagination = ref({
 const showFileManege = ref(false);
 const showAddDialog = ref(false);
 const handleShowAddAdmin = () => {
-  showAddDialog.value = true;
   if (adminForm.value.id) {
     adminForm.value = {
       id: null,
       avatar: '',
+      isCreator: false,
       username: '',
-      nickname: '',
       roleIds: [],
+      nickname: '',
       password: '',
       mobile: '',
     };
   }
+  showAddDialog.value = true;
 };
 const dataLoading = ref(false);
 const getAdminList = () => {
@@ -253,6 +257,7 @@ const handleAddAdmin = () => {
         showAddDialog.value = false;
         getAdminList();
         adminForm.value = {
+          isCreator: false,
           id: null,
           avatar: '',
           username: '',
@@ -279,6 +284,7 @@ const handleUpdateAdmin = () => {
         showAddDialog.value = false;
         getAdminList();
         adminForm.value = {
+          isCreator: false,
           id: null,
           avatar: '',
           username: '',
@@ -346,20 +352,24 @@ const lockAdmin = (row) => {
     },
   });
 };
-const unlockAdmin = (row) => {
-  lockAdminApi({ id: row.id, locked: false }).then((res) => {
-    if (res.success) {
-      MessagePlugin.success('操作成功');
-      getAdminList();
-    }
+
+const handleLockClick = (admin: AdminType) => {
+  const dialog = DialogPlugin.confirm({
+    header: admin.locked ? '解除锁定' : '锁定人员账号',
+    body: admin.locked
+      ? '解除锁定后人员将恢复登录和使用，是否继续？'
+      : `将"${admin.nickname}"账号锁定，人员将立即被强制下线，且无法登录，是否继续？`,
+    onConfirm: () => {
+      lockAdminApi({ id: admin.id, value: !admin.locked }).then((res) => {
+        if (res.success) {
+          MessagePlugin.success('操作成功');
+          admin.locked = !admin.locked;
+          dialog.destroy();
+        }
+      });
+    },
   });
-};
-const handleLockClick = (row) => {
-  if (row.locked) {
-    unlockAdmin(row);
-  } else {
-    lockAdmin(row);
-  }
+  console.log('锁定', admin);
 };
 const deleteAdmin = (row) => {
   const dialog = DialogPlugin.confirm({
@@ -381,7 +391,6 @@ onActivated(() => {
   console.log('onActivated');
 });
 onMounted(() => {
-  console.log('onMounted');
   getAdminList();
   getRoleList();
 });
@@ -392,6 +401,7 @@ onMounted(() => {
   position: relative;
   color: var(--td-success-color);
   margin-left: 10px;
+
   &::before {
     position: absolute;
     top: 50%;
@@ -405,8 +415,10 @@ onMounted(() => {
     border-radius: 50%;
   }
 }
+
 .status.unhealth {
   color: var(--td-error-color);
+
   &::before {
     background-color: var(--td-error-color);
   }

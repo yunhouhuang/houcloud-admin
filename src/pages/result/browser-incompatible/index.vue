@@ -32,7 +32,6 @@ const router = useRouter();
 </script>
 
 <style lang="less" scoped>
-@import '@/style/variables.less';
 
 .result-slot-container {
   position: relative;

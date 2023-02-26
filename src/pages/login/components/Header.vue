@@ -37,7 +37,6 @@ onMounted(() => {
 </script>
 
 <style lang="less" scoped>
-@import '@/style/variables.less';
 .login-header {
   height: 64px;
   padding: 0 24px;

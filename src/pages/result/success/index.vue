@@ -20,7 +20,6 @@ import { useRouter } from 'vue-router';
 const router = useRouter();
 </script>
 <style lang="less" scoped>
-@import '@/style/variables.less';
 
 .result-success {
   display: flex;

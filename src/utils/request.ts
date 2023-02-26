@@ -94,7 +94,7 @@ instance.interceptors.response.use(
       toLogin();
     }
     // 业务异常
-    if (response.status === 200 && response.data.code !== 1) {
+    else if (response.status === 200 && response.data.code !== 1) {
       const message = response.data.message || '未知错误';
       MessagePlugin.error(message).then(() => {});
     }
