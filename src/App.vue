@@ -23,8 +23,10 @@ onMounted(() => {
 watch(
   () => userStore.loginExpired,
   (value) => {
+    const { fullPath } = router.currentRoute.value;
     if (value === true) {
-      router.push(`/login?redirect=${router.currentRoute.value.fullPath}`);
+      userStore.logout();
+      router.push(`/login?redirect=${fullPath}`);
     }
   },
 );

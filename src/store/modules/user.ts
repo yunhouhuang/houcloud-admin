@@ -75,7 +75,6 @@ export const useUserStore = defineStore('user', {
       if (this.loginExpired === true) {
         this.loginExpired = false;
       }
-      await this.logout();
       this.loginExpired = true;
     },
     async closeLoginDialog() {
