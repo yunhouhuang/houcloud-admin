@@ -21,12 +21,16 @@ export interface AdminRole {
 }
 
 export interface AdminType {
-  id: number;
-  avatar: string;
+  id?: number;
+  avatar?: string;
   mobile?: string;
-  nickname: string;
-  lastLoginAt: Date;
-  lastLiveAt: Date;
-  createdAt: Date;
-  roles: any[];
+  nickname?: string;
+  username?: string;
+  password?: string;
+  roleIds?: number[];
+  isCreator?: boolean;
+  lastLoginAt?: Date;
+  lastLiveAt?: Date;
+  createdAt?: Date;
+  roles?: any[];
 }

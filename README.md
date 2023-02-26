@@ -32,12 +32,11 @@
 > 2核4m带宽服务器，请慢点用
 
 ```text
-username: houcloud
-
+username: admin
 password: houcloud
+
+# 其他账号的密码全部都是 houcloud
 ```
-
-
 ---
 
 ### 本地运行(推荐用pnpm)
@@ -46,6 +45,7 @@ pnpm方式
 pnpm install 
 pnpm dev
 ```
+
 npm方式
 ```shell
 npm install 
@@ -68,15 +68,15 @@ npm run build
 [//]: # ([HOUCLOUD 文档]&#40;https://doc.houcloud.com&#41;)
 
 
-二次开发前端您必须掌握熟悉以下技能：
+二次开发前端您可能要提前掌握熟悉以下技能：
 
-- Html基础
+- Html Css JS基础
 - Vue3
-- TS
-- tdesign
+- TypeScript语法
 
 
-UI框架使用腾讯开源 Tdesign  文档地址 https://tdesign.tencent.com/vue-next/
+
+UI框架使用腾讯开源 TDesign  文档地址 https://tdesign.tencent.com/vue-next/
 
 
 ### 需要后端代码点个星星加我个人微信号免费领取

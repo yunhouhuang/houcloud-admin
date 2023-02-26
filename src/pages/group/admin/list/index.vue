@@ -27,7 +27,7 @@
       </template>
       <template #nickname="{ row }">
         <span>{{ row.nickname }}</span>
-        <t-tag v-if="row.isCreator" theme="default" shape="mark" size="small">创始人</t-tag>
+        <t-tag v-if="row.isCreator" theme="default" shape="mark" size="small" class="ml-1">创始人</t-tag>
       </template>
       <template #role="{ row }">
         <div v-if="row.roles && row.roles.length">
@@ -58,7 +58,7 @@
       </template>
       <template #op="slotProps">
         <t-button size="small" @click="handleClickDetail(slotProps.row)">查看</t-button>
-        <t-dropdown v-if="slotProps.row.id !== myInfo.id" min-column-width="140">
+        <t-dropdown v-if="slotProps.row.id !== myInfo.id && !slotProps.row.isCreator" min-column-width="140">
           <template #dropdown>
             <t-dropdown-menu>
               <t-dropdown-item @click="handleLockClick(slotProps.row)">
@@ -219,7 +219,7 @@ const getAdminList = () => {
     });
 };
 
-const adminForm = ref({
+const adminForm = ref<AdminType>({
   id: null,
   avatar: '',
   isCreator: false,
