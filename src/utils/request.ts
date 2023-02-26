@@ -84,18 +84,19 @@ instance.interceptors.request.use((request) => {
 instance.interceptors.response.use(
   (response) => {
     const { data } = response;
+    const message = data?.message || '未知错误';
     if (response.status === 200) {
       if (data.code === CODE.REQUEST_SUCCESS) {
         return data;
       }
+      // 业务异常
+      MessagePlugin.error(message).then(() => {});
     }
     // 未授权
     if (response.data.code === 401 || response.status === 401) {
       toLogin();
-    }
-    // 业务异常
-    else if (response.status === 200 && response.data.code !== 1) {
-      const message = response.data.message || '未知错误';
+    } else {
+      // 其他错误
       MessagePlugin.error(message).then(() => {});
     }
     return data;
