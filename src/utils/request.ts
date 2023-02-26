@@ -10,12 +10,20 @@ const CODE = {
   LOGIN_TIMEOUT: 1000,
   REQUEST_SUCCESS: 1,
 };
+let logoutLoading = false;
 export const toLogin = () => {
+  if (logoutLoading) {
+    return;
+  }
+  MessagePlugin.error('授权凭证已过期').then(() => {});
+  logoutLoading = true;
   const userStore = useUserStore();
-  userStore.logout().then(() => {
-    console.log('退出登录');
-    router.push(`/login?redirect=${router.currentRoute.value.fullPath}`).then();
-  });
+  userStore
+    .loginExpiredNotice()
+    .then(() => {})
+    .finally(() => {
+      logoutLoading = false;
+    });
 };
 
 export interface ApiResult<T> {
@@ -83,7 +91,6 @@ instance.interceptors.response.use(
     }
     // 未授权
     if (response.data.code === 401 || response.status === 401) {
-      MessagePlugin.error('授权凭证已过期').then(() => {});
       toLogin();
     }
     // 业务异常

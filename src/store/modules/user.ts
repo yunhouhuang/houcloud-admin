@@ -29,7 +29,7 @@ export const useUserStore = defineStore('user', {
     redirect: localStorage.getItem(LOGIN_REDIRECT) || null,
     token: localStorage.getItem(ACCESS_TOKEN_NAME) || null,
     userInfo: localStorage.getItem(PERSONAL_INFO) ? JSON.parse(localStorage.getItem(PERSONAL_INFO)) : InitUserInfo,
-    showLogin: false,
+    loginExpired: false,
   }),
   getters: {
     permissions: (state) => {
@@ -71,18 +71,19 @@ export const useUserStore = defineStore('user', {
       this.token = '';
       this.userInfo = InitUserInfo;
     },
-    async showLoginDialog() {
-      if (this.showLogin === true) {
-        this.showLogin = false;
+    async loginExpiredNotice() {
+      if (this.loginExpired === true) {
+        this.loginExpired = false;
       }
       await this.logout();
-      this.showLogin = true;
+      this.loginExpired = true;
     },
     async closeLoginDialog() {
-      this.showLogin = false;
+      this.loginExpired = false;
     },
     async removeToken() {
       this.token = '';
+      localStorage.removeItem(ACCESS_TOKEN_NAME);
     },
   },
 });

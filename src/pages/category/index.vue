@@ -147,6 +147,15 @@ const showFileManege = ref(false);
 const showAddDialog = ref(false);
 const handleShowAddCategory = () => {
   showAddDialog.value = true;
+  if (categoryForm.value.id) {
+    categoryForm.value = {
+      id: null,
+      image: '',
+      type: '',
+      name: '',
+      weight: 999,
+    };
+  }
 };
 const dataLoading = ref(false);
 const getCategoryList = () => {

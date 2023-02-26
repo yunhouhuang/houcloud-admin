@@ -2,7 +2,7 @@
   <router-view :class="[mode]" />
 </template>
 <script setup lang="ts">
-import { computed, onMounted } from 'vue';
+import { computed, onMounted, watch } from 'vue';
 import { useRouter } from 'vue-router';
 import config from '@/config/style';
 import { useSettingStore, useUserStore } from '@/store';
@@ -20,6 +20,10 @@ onMounted(() => {
   }
   store.updateConfig({ ...config });
 });
+watch(
+  () => userStore.loginExpired,
+  () => {},
+);
 </script>
 <style lang="less" scoped>
 @import '@/style/variables.less';

@@ -200,6 +200,17 @@ const showFileManege = ref(false);
 const showAddDialog = ref(false);
 const handleShowAddAdmin = () => {
   showAddDialog.value = true;
+  if (adminForm.value.id) {
+    adminForm.value = {
+      id: null,
+      avatar: '',
+      username: '',
+      nickname: '',
+      roleIds: [],
+      password: '',
+      mobile: '',
+    };
+  }
 };
 const dataLoading = ref(false);
 const getAdminList = () => {
