@@ -18,9 +18,12 @@ export const toLogin = () => {
   MessagePlugin.error('授权凭证已过期').then(() => {});
   logoutLoading = true;
   const userStore = useUserStore();
+  const { fullPath } = router.currentRoute.value;
   userStore
-    .loginExpiredNotice()
-    .then(() => {})
+    .logout()
+    .then(() => {
+      router.push(`/login?redirect=${fullPath}`);
+    })
     .finally(() => {
       setTimeout(() => {
         logoutLoading = false;

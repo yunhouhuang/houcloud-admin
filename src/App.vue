@@ -20,16 +20,6 @@ onMounted(() => {
   }
   store.updateConfig({ ...config });
 });
-watch(
-  () => userStore.loginExpired,
-  (value) => {
-    const { fullPath } = router.currentRoute.value;
-    if (value === true) {
-      userStore.logout();
-      router.push(`/login?redirect=${fullPath}`);
-    }
-  },
-);
 </script>
 <style lang="less" scoped>
 #nprogress .bar {
