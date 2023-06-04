@@ -15,15 +15,15 @@
           <div style="height: 500px">
             <div class="dpr-center-start">
               <div style="min-width: 150px">Redis版本</div>
-              <div class="px-2">{{ cacheInfo.info.redis_version }}</div>
+              <div class="px-2">{{ cacheInfo?.info?.redis_version }}</div>
             </div>
             <div class="dpr-center-start">
               <div style="min-width: 150px">部署模式</div>
-              <div class="px-2">{{ cacheInfo.info.redis_mode === 'standalone' ? '单个' : '集群' }}</div>
+              <div class="px-2">{{ cacheInfo?.info?.redis_mode === 'standalone' ? '单个' : '集群' }}</div>
             </div>
             <div class="dpr-center-start mt-1">
               <div style="min-width: 150px">端口</div>
-              <div class="px-2">{{ cacheInfo.info.tcp_port }}</div>
+              <div class="px-2">{{ cacheInfo?.info?.tcp_port || '-' }}</div>
             </div>
             <div class="dpr-center-start mt-1">
               <div style="min-width: 150px">已连接客户端数</div>
