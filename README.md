@@ -83,8 +83,9 @@ UI框架使用腾讯开源 TDesign  文档地址 https://tdesign.tencent.com/vue
 <img src="doc/IMG_4343.PNG" height="200" width="200" >
 
 
-### 打赏看你心情
-<img src="doc/IMG_4345.JPG" height="200" width="200" >
+[//]: # (### 打赏看你心情)
+
+[//]: # (<img src="doc/IMG_4345.JPG" height="200" width="200" >)
 
 
 ###  页面预览图
