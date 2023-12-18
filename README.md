@@ -79,13 +79,14 @@ npm run build
 UI框架使用腾讯开源 TDesign  文档地址 https://tdesign.tencent.com/vue-next/
 
 
-### 需要后端代码点个星星加我个人微信号免费领取
+### 需要后端代码点个星星然后去我的仓库找 `houcloud-server`
+
+
+### 有什么问题想了解也可加 V
 <img src="doc/IMG_4343.PNG" height="200" width="200" >
 
 
-[//]: # (### 打赏看你心情)
-
-[//]: # (<img src="doc/IMG_4345.JPG" height="200" width="200" >)
+码主有吃有喝，就不用打赏了
 
 
 ###  页面预览图
