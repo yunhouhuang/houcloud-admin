@@ -27,50 +27,50 @@
             </div>
             <div class="dpr-center-start mt-1">
               <div style="min-width: 150px">已连接客户端数</div>
-              <div class="px-2">{{ cacheInfo.info.connected_clients }}</div>
+              <div class="px-2">{{ cacheInfo?.info?.connected_clients }}</div>
             </div>
             <div class="dpr-center-start mt-1">
               <div style="min-width: 150px">主动碎片整理</div>
-              <div class="px-2">{{ cacheInfo.info.active_defrag_running }}</div>
+              <div class="px-2">{{ cacheInfo?.info?.active_defrag_running }}</div>
             </div>
             <div class="dpr-center-start mt-1">
               <div style="min-width: 150px">连续运行</div>
-              <div class="px-2">{{ cacheInfo.info.uptime_in_days }}天</div>
+              <div class="px-2">{{ cacheInfo?.info?.uptime_in_days }}天</div>
             </div>
 
             <div class="dpr-center-start mt-1">
               <div style="min-width: 150px">网络带宽进/出</div>
               <div class="px-2">
-                {{ cacheInfo.info.instantaneous_input_kbps }}kps/{{ cacheInfo.info.instantaneous_output_kbps }}kps
+                {{ cacheInfo?.info?.instantaneous_input_kbps }}kps/{{ cacheInfo?.info?.instantaneous_output_kbps }}kps
               </div>
             </div>
             <div class="dpr-center-start mt-1">
               <div style="min-width: 150px">Key数量</div>
-              <div class="px-2">{{ cacheInfo.dbSize }}</div>
+              <div class="px-2">{{ cacheInfo?.dbSize }}</div>
             </div>
 
             <div class="dpr-center-start mt-1">
               <div style="min-width: 150px">CPU占用</div>
-              <div class="px-2">{{ cacheInfo.info.used_cpu_sys }}</div>
+              <div class="px-2">{{ cacheInfo?.info.used_cpu_sys }}</div>
             </div>
             <div class="dpr-center-start mt-1">
               <div style="min-width: 150px">内存使用上限</div>
-              <div class="px-2">{{ cacheInfo.info.maxmemory_human }}</div>
+              <div class="px-2">{{ cacheInfo?.info?.maxmemory_human }}</div>
             </div>
             <div class="dpr-center-start mt-1">
               <div style="min-width: 150px">系统内存大小</div>
-              <div class="px-2">{{ cacheInfo.info.total_system_memory_human }}</div>
+              <div class="px-2">{{ cacheInfo?.info?.total_system_memory_human }}</div>
             </div>
             <div class="dpr-center-start mt-1">
               <div style="min-width: 150px">已使用的内存</div>
-              <div class="px-2">{{ cacheInfo.info.used_memory_human }}</div>
+              <div class="px-2">{{ cacheInfo?.info?.used_memory_human }}</div>
             </div>
             <div class="dpr-center-start mt-10">
               <div style="min-width: 150px">系统内存用量</div>
               <t-progress
                 style="width: 100%; max-width: 300px"
                 theme="plump"
-                :percentage="Number(cacheInfo.info.used_memory_peak_perc.replaceAll('%', ''))"
+                :percentage="Number(cacheInfo?.info?.used_memory_peak_perc.replaceAll('%', ''))"
               />
             </div>
           </div>
