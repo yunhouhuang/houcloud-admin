@@ -44,7 +44,7 @@ export const getRoutesExpanded = () => {
 export const getActive = (maxLevel = 3): string => {
   const route = useRoute();
   // @ts-ignore
-  if (route.meta.hidden && route.meta.matched && route.meta.matched.length) {
+  if (route.meta?.hidden && route.meta?.matched && route.meta?.matched.length) {
     return route.meta.matched[0].name;
   }
   if (!route.name || typeof route.name !== 'string') {

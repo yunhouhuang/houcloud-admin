@@ -5,6 +5,7 @@
     <!--    </t-card>-->
     <t-row class="mt-4" :gutter="[20]">
       <t-col :sm="12" :md="6">
+
         <t-card
           v-if="cacheInfo"
           title="资源消耗"
