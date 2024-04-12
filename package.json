@@ -1,6 +1,7 @@
 {
   "name": "houcloud-admin",
-  "version": "2023.1",
+  "version": "2024.1",
+  "description": "腾讯风格的后台管理系统快速开发基础成品",
   "scripts": {
     "dev": "vite --open --mode development",
     "dev:linux": "vite --mode development",
@@ -26,16 +27,18 @@
     "nprogress": "^0.2.0",
     "pinia": "^2.0.29",
     "pinia-plugin-persistedstate": "^3.0.2",
+    "postcss": "^8.4.38",
     "qrcode.vue": "^3.2.2",
+    "tailwindcss": "^3.4.3",
     "tdesign-icons-vue-next": "^0.1.12",
     "tdesign-vue-next": "^1.7.2",
     "tinymce": "^6.3.0",
     "tvision-color": "^1.4.0",
-    "vite": "^4.5.1",
+    "vite": "^4.5.3",
     "vite-plugin-compression": "^0.5.1",
-    "vite-plugin-pwa": "^0.14.4",
+    "vite-plugin-pwa": "^0.14.7",
     "vite-svg-loader": "^4.0.0",
-    "vue": "^3.3.13",
+    "vue": "^3.4.21",
     "vue-clipboard3": "^2.0.0",
     "vue-router": "4.0.15"
   },
@@ -57,7 +60,7 @@
     "eslint-plugin-vue": "^9.4.0",
     "eslint-plugin-vue-scoped-css": "^2.2.0",
     "husky": "^8.0.1",
-    "less": "^4.1.3",
+    "less": "^4.2.0",
     "lint-staged": "^12.1.2",
     "prettier": "^2.4.1",
     "rollup": "^2.72.1",
@@ -65,9 +68,9 @@
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-less": "1.0.1",
     "stylelint-order": "^5.0.0",
-    "typescript": "^4.8.3",
-    "vue-eslint-parser": "^9.0.2",
-    "vue-tsc": "^0.34.11"
+    "typescript": "^4.9.5",
+    "vue-eslint-parser": "^9.4.2",
+    "vue-tsc": "^0.34.17"
   },
   "config": {
     "commitizen": {
