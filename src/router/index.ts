@@ -1,4 +1,4 @@
-import { useRoute, createRouter, RouteRecordRaw, createWebHistory, RouteLocationNormalizedLoaded } from 'vue-router';
+import { createRouter, createWebHistory, RouteLocationNormalizedLoaded, RouteRecordRaw } from 'vue-router';
 import uniq from 'lodash/uniq';
 import resultRoutes from './modules/result';
 import personalRoutes from './modules/personal';
@@ -41,20 +41,6 @@ export const getRoutesExpanded = () => {
   return uniq(expandedRoutes);
 };
 
-export const getActive = (maxLevel = 3): string => {
-  const route: RouteLocationNormalizedLoaded & any = useRoute();
-  if (!route) {
-    return '';
-  }
-  if (route.meta?.hidden && route.meta?.matched && route.meta?.matched?.length) {
-    return route.meta?.matched[0].name;
-  }
-  if (!route.name || typeof route.name !== 'string') {
-    return '';
-  }
-  return route.name;
-};
-
 const router = createRouter({
   history: createWebHistory(),
   routes: allRoutes,
@@ -66,5 +52,21 @@ const router = createRouter({
     };
   },
 });
+
+export const getActive = (maxLevel = 3): string => {
+  // fixed at 20240412
+  const route: RouteLocationNormalizedLoaded | any = router.currentRoute.value;
+  if (!route) {
+    // 没有路由实例
+    return '';
+  }
+  if (route?.meta?.hidden && route?.meta.matched && route?.meta?.matched.length) {
+    return route.meta.matched[0].name;
+  }
+  if (!route.name || typeof route.name !== 'string') {
+    return '';
+  }
+  return route.name;
+};
 
 export default router;
