@@ -1,4 +1,4 @@
-import { useRoute, createRouter, RouteRecordRaw, createWebHistory } from 'vue-router';
+import { useRoute, createRouter, RouteRecordRaw, createWebHistory, RouteLocationNormalizedLoaded } from 'vue-router';
 import uniq from 'lodash/uniq';
 import resultRoutes from './modules/result';
 import personalRoutes from './modules/personal';
@@ -42,9 +42,9 @@ export const getRoutesExpanded = () => {
 };
 
 export const getActive = (maxLevel = 3): string => {
-  const route = useRoute();
-  if (!route){
-    return ''
+  const route: RouteLocationNormalizedLoaded & any = useRoute();
+  if (!route) {
+    return '';
   }
   if (route.meta?.hidden && route.meta?.matched && route.meta?.matched?.length) {
     return route.meta?.matched[0].name;
