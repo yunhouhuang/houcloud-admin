@@ -74,29 +74,23 @@ npm run build
 - Vue3
 - TypeScript语法
 
-
+- Spring boot
+- MySQL
+- Redis
 
 UI框架使用腾讯开源 TDesign  文档地址 https://tdesign.tencent.com/vue-next/
 
 
-### 需要后端代码点个星星然后去我的仓库找 `houcloud-server`
+### 有什么问题想了解也可加V或者邮箱联系
 
-
-### 有什么问题想了解也可加 V
+Wechat:
 <img src="doc/IMG_4343.PNG" height="200" width="200" >
 
-
-码主有吃有喝，就不用打赏了
-
+Email:
+<a href="mailto:yunhouhuang@gmail.com">yunhouhuang@gmail.com</a>
 
 ###  页面预览图
-![login.jpg](doc%2Flogin.jpg)
-![page7.jpg](doc%2Fpage7.jpg)
 ![page1.png](doc%2Fpage1.png)
 ![page2.png](doc%2Fpage2.png)
 ![page3.png](doc%2Fpage3.png)
 ![page4.png](doc%2Fpage4.png)
-![page5.png](doc%2Fpage5.png)
-![page6.png](doc%2Fpage6.png)
-
-
