@@ -1,5 +1,5 @@
 <template>
-  <div :class="prefix + '-footer'">&copy; {{ new Date().getFullYear() }} HOUCLOUD ｜ Yunhou·Huang</div>
+  <div :class="prefix + '-footer'">&copy; {{ new Date().getFullYear() }} HOUCLOUD ｜ YUNHOU · HUANG</div>
 </template>
 
 <script setup lang="ts">

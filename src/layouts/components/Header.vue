@@ -25,7 +25,9 @@
               <t-radio-button value="dark">
                 <dark-theme-icon class="theme-btn" height="12" width="12" />
               </t-radio-button>
-              <t-radio-button class="theme-btn" value="auto"> <sys-theme-icon height="12" width="12" /></t-radio-button>
+              <t-radio-button class="theme-btn" value="auto">
+                <sys-theme-icon height="12" width="12" />
+              </t-radio-button>
             </t-radio-group>
           </div>
           <div class="dpr-center-start">
@@ -48,10 +50,10 @@
                 <div>
                   <t-button class="header-user-btn" theme="default" variant="text">
                     <template #icon>
-                      <t-avatar size="22px" class="header-user-avatar" :image="userInfo.avatar" />
+                      <t-avatar size="22px" class="header-user-avatar" :image="userInfo?.avatar" />
                     </template>
                     <div v-if="showMenu" class="header-user-account ml-2">
-                      {{ userInfo.nickname }}
+                      {{ userInfo?.nickname }}
                       <t-icon name="chevron-down" />
                     </div>
                   </t-button>
@@ -71,7 +73,7 @@
 </template>
 
 <script setup lang="ts">
-import { PropType, computed, ref, onMounted, onUnmounted, watchEffect, watch } from 'vue';
+import { computed, onMounted, onUnmounted, PropType, ref, watch, watchEffect } from 'vue';
 import { useRouter } from 'vue-router';
 import { useSettingStore, useUserStore } from '@/store';
 import DarkThemeIcon from '@/assets/svg/dark-theme.svg';
@@ -148,9 +150,6 @@ const toggleSettingPanel = () => {
   });
 };
 const showMenu = ref(false);
-const showLogin = () => {
-  userStore.showLoginDialog();
-};
 const showMenuFun = () => {
   showMenu.value = window.innerWidth >= 780;
 };
@@ -226,6 +225,7 @@ watchEffect(() => {
       z-index: 10;
       width: auto;
       transition: all 0.3s;
+
       &-compact {
         left: 64px;
       }
@@ -238,16 +238,17 @@ watchEffect(() => {
     height: 64px;
   }
 }
+
 .theme-btn {
   fill: var(--td-text-color-primary);
 }
+
 .header-menu {
-  flex: 1 1 1;
+  flex: 1;
   display: inline-flex;
 
   :deep(.t-menu__item) {
     min-width: unset;
-    padding: 0px 16px;
   }
 }
 
@@ -255,6 +256,7 @@ watchEffect(() => {
   display: flex;
   align-items: center;
   margin-right: 12px;
+
   .t-popup__reference {
     display: flex;
     align-items: center;
@@ -263,6 +265,7 @@ watchEffect(() => {
 
   .t-button {
     margin: 0 8px;
+
     &.header-user-btn {
       margin: 0;
     }
@@ -270,6 +273,7 @@ watchEffect(() => {
 
   .t-icon {
     font-size: 20px;
+
     &.general {
       margin-right: 16px;
     }
@@ -288,15 +292,12 @@ watchEffect(() => {
 }
 
 .header-logo-container {
-  width: 184px;
-  height: 50px;
-  display: flex;
-  margin-left: 24px;
   color: var(--td-text-color-primary);
 
   .t-logo {
-    width: 100%;
-    height: 100%;
+    height: 36px;
+    width: 130px;
+
     &:hover {
       cursor: pointer;
     }
@@ -311,10 +312,15 @@ watchEffect(() => {
   display: inline-flex;
   align-items: center;
   color: var(--td-text-color-primary);
+
   .t-icon {
     margin-left: 4px;
     font-size: 16px;
   }
+}
+
+:deep(.tdesign-starter-side-nav-logo-wrapper) {
+  justify-content: flex-start;
 }
 
 :deep(.t-head-menu__inner) {
@@ -326,15 +332,19 @@ watchEffect(() => {
     color: var(--td-text-color-primary);
   }
 }
+
 .t-menu--dark {
   .t-head-menu__inner {
     border-bottom: 1px solid var(--td-gray-color-10);
   }
+
   .header-user-account {
     color: rgba(255, 255, 255, 0.55);
   }
+
   .t-button {
     --ripple-color: var(--td-gray-color-10) !important;
+
     &:hover {
       background: var(--td-gray-color-12) !important;
     }
@@ -355,6 +365,7 @@ watchEffect(() => {
       display: flex;
       justify-content: center;
     }
+
     .t-dropdown__item_Content__text {
       display: flex;
       align-items: center;
@@ -366,6 +377,7 @@ watchEffect(() => {
     width: 100%;
     margin-bottom: 0;
   }
+
   &:last-child {
     :deep(.t-dropdown__item) {
       margin-bottom: 8px;
