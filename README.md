@@ -27,7 +27,7 @@
 - Hutool
 
 
-### [在线预览地址](https://houcloud-admin.houcloud.com) https://houcloud-admin.houcloud.com
+### [在线预览地址](https://admin.houcloud.com) https://admin.houcloud.com
 
 > 2核4m带宽服务器，请慢点用
 
