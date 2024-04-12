@@ -12,5 +12,5 @@ export default {
   showHeader: true,
   backgroundTheme: 'blueGrey',
   brandTheme: 'default',
-  title: 'HOUCLOUD',
+  title: 'HOUCLOUD-ADMIN 快速开发基础套件',
 };

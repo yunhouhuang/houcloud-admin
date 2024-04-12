@@ -2,8 +2,8 @@
   <div :class="sideNavCls">
     <t-menu :class="menuCls" :theme="theme" :value="active" :collapsed="collapsed" :default-expanded="defaultExpanded">
       <template #logo>
-        <span v-if="showLogo" :class="`${prefix}-side-nav-logo-wrapper`" @click="goHome">
-          <component :is="getLogo()" :class="`${prefix}-side-nav-logo-${collapsed ? 't' : 'tdesign'}-logo`" />
+        <span v-if="showLogo" class="flex justify-start" @click="goHome">
+          <component :is="getLogo()" class="max-h-[35px] max-w-[130px]" />
         </span>
       </template>
       <menu-content :nav-data="menu" />
@@ -16,10 +16,13 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, PropType, ref, watch } from 'vue';
+import { computed, defineComponent, onMounted, PropType, ref, watch } from 'vue';
 import { useRouter } from 'vue-router';
 import union from 'lodash/union';
 
+defineComponent({
+  name: 'SideNav',
+});
 import { useSettingStore, useUserStore } from '@/store';
 import { prefix } from '@/config/global';
 import pgk from '../../../package.json';
@@ -27,7 +30,8 @@ import { MenuRoute } from '@/types/interface';
 import { getActive, getRoutesExpanded } from '@/router';
 
 import AssetLogo from '@/assets/logo.svg?component';
-import AssetLogoFull from '@/assets/logo-full.svg?component';
+import DarkFullLogo from '@/assets/logo-full.svg?component';
+import LightFullLogo from '@/assets/logo-full.svg?component';
 import MenuContent from './MenuContent.vue';
 
 const userStore = useUserStore();
@@ -125,8 +129,12 @@ const goHome = () => {
 
 const getLogo = () => {
   if (collapsed.value) return AssetLogo;
-  return AssetLogoFull;
+  if (props.theme === 'dark') {
+    return DarkFullLogo;
+  }
+  return LightFullLogo;
 };
 </script>
 
 <style lang="less" scoped></style>
+Z=

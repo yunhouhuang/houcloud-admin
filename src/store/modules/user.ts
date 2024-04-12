@@ -24,8 +24,14 @@ interface UserInfoType {
   permissions: string[];
 }
 
+type UserStoreType = {
+  redirect: string;
+  token: string;
+  userInfo: UserInfoType;
+  loginExpired: boolean;
+};
 export const useUserStore = defineStore('user', {
-  state: () => ({
+  state: (): UserStoreType => ({
     redirect: localStorage.getItem(LOGIN_REDIRECT) || null,
     token: localStorage.getItem(ACCESS_TOKEN_NAME) || null,
     userInfo: localStorage.getItem(PERSONAL_INFO) ? JSON.parse(localStorage.getItem(PERSONAL_INFO)) : InitUserInfo,
