@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="60px" height="60px" viewBox="0 0 76 76" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="70px" height="70px" viewBox="0 0 74 74" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>编组 2</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#00D1EE" offset="0%"></stop>
+            <stop stop-color="#0052D9" offset="100%"></stop>
+        </linearGradient>
+    </defs>
     <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="编组-2" transform="translate(-0, 0)">
-            <rect id="矩形" fill="#0052D9" x="0" y="0" width="75.8892237" height="75.8892237" rx="17"></rect>
-            <g id="编组" transform="translate(28.046, 6.5991)" fill="#FFFFFF">
-                <rect id="矩形" x="1.64976573" y="23.0967203" width="16.4976573" height="16.4976573" rx="8.24882867"></rect>
-                <polygon id="矩形" points="0 40.1442995 9.8985944 47.4520436 19.7971888 40.1442995 19.7971888 56.6285144 9.8985944 62.6910979 7.4866973e-15 56.6285144"></polygon>
-                <polygon id="矩形" points="1.04434274e-15 0 9.8985944 7.30774404 19.7971888 0 19.7971888 22.5467984 9.8985944 14.6309775 3.709006e-15 22.5467984"></polygon>
+        <g id="编组-2" transform="translate(6, 0)">
+            <rect id="矩形" fill="url(#linearGradient-1)" x="0" y="6" width="63" height="63" rx="31.5"></rect>
+            <g id="编组" transform="translate(8, 0)" fill="#FFFFFF" fill-rule="nonzero">
+                <polygon id="路径" points="49 37 22.05 29.6 26.95 0 0 37 26.95 39.4666667 17.15 74"></polygon>
             </g>
         </g>
     </g>

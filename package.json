@@ -1,6 +1,6 @@
 {
   "name": "houcloud-admin",
-  "version": "2024.1",
+  "version": "2024.2",
   "description": "腾讯风格的后台管理系统快速开发基础成品",
   "scripts": {
     "dev": "vite --open --mode development",
