@@ -26,10 +26,6 @@
 - MyBatis Plus
 - Hutool
 
-#### [在线预览 admin.houcloud.com](https://admin.houcloud.com)
-[阿里云服务器特惠活动](https://www.aliyun.com/activity/new/index?userCode=cygt84r6)
-
-> 打不开？打不开就是服务器到期了，没钱续费了
 
 登录账号密码
 
